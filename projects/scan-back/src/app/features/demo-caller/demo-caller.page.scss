@@ -1,0 +1,91 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  background:
+    radial-gradient(1000px 500px at 0% 0%, #2a2438 0%, transparent 55%),
+    #12161b;
+  color: #eef2f5;
+}
+
+.demo {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.brand {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  margin: 0.35rem 0 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.lead {
+  margin: 0.65rem 0 0;
+  color: #b7c2cc;
+  line-height: 1.5;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field span {
+  font-size: 0.9rem;
+  color: #b7c2cc;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 12px;
+  padding: 0.85rem 0.95rem;
+  background: rgb(0 0 0 / 28%);
+  color: inherit;
+  font: inherit;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  justify-self: start;
+  background: #e8edf2;
+  color: #12161b;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.meta {
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.meta div {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0.5rem;
+}
+
+dt {
+  color: #8f9aa6;
+}
+
+dd {
+  margin: 0;
+  word-break: break-all;
+}
