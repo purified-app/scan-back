@@ -1,0 +1,115 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #1c3a4f 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, #243028 0%, transparent 50%),
+    #0f1418;
+  color: #eef2f5;
+}
+
+.home {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2.5rem clamp(1rem, 4vw, 1.25rem) 3rem;
+  display: grid;
+  gap: 2.5rem;
+  overflow-wrap: break-word;
+}
+
+.brand {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 8vw, 2.75rem);
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.1rem, 4.5vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.lead {
+  margin: 0.85rem 0 0;
+  color: #b7c2cc;
+  font-size: clamp(0.95rem, 3.5vw, 1rem);
+  line-height: 1.55;
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  background: #e8edf2;
+  color: #0f1418;
+  font: inherit;
+  font-weight: 650;
+  text-decoration: none;
+  text-align: center;
+  max-width: 100%;
+}
+
+.btn-ghost {
+  background: rgb(255 255 255 / 12%);
+  color: #eef2f5;
+}
+
+.docs {
+  min-width: 0;
+}
+
+.docs h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.docs h3 {
+  margin: 1.35rem 0 0.65rem;
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.docs p {
+  margin: 0 0 0.65rem;
+  color: #b7c2cc;
+  line-height: 1.5;
+}
+
+pre {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border-radius: 12px;
+  background: rgb(0 0 0 / 35%);
+  border: 1px solid rgb(255 255 255 / 8%);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: clamp(0.72rem, 2.8vw, 0.82rem);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 24rem) {
+  .cta {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,32 @@
+<main class="home">
+  <header>
+    <p class="brand">ScanBack</p>
+    <h1>Scan a QR code or barcode and return to the app you came from</h1>
+    <p class="lead">
+      Mobile-first scanner that other web apps can open. After a successful scan, the value is
+      redirected back via URL.
+    </p>
+    <div class="cta">
+      <a routerLink="/scan" class="btn">Start scanning</a>
+      <a routerLink="/demo-caller" class="btn btn-ghost">Try demo caller</a>
+    </div>
+  </header>
+
+  <section class="docs">
+    <h2>Integration</h2>
+    <p>Open the scanner:</p>
+    <pre><code>/scan?returnUrl=&lt;urlencoded-https-url&gt;&amp;state=&lt;optional&gt;&amp;formats=&lt;optional&gt;</code></pre>
+    <p>After a successful scan, redirect to:</p>
+    <pre><code>&lt;returnUrl&gt;?scanValue=&lt;value&gt;&amp;format=&lt;format&gt;&amp;state=&lt;state&gt;</code></pre>
+
+    <h3>Demo URL example</h3>
+    <p>Open ScanBack and return to the built-in demo caller:</p>
+    <pre><code>{{ demoOpenUrl }}</code></pre>
+    <p>Example return after scanning <code>ABC-123</code>:</p>
+    <pre><code>{{ demoReturnUrl }}</code></pre>
+    <p>
+      Without <code>returnUrl</code>, the result is shown in the app (standalone mode).
+      <code>returnUrl</code> must be <code>https:</code> (or <code>http://localhost</code>).
+    </p>
+  </section>
+</main>

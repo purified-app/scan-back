@@ -1,0 +1,44 @@
+<main class="demo">
+  <header>
+    <p class="brand">Demo caller</p>
+    <h1>Simulate another app that opens ScanBack</h1>
+    <p class="lead">
+      Tap “Scan” to open the scanner. After a hit, the field is filled with the scanned value.
+    </p>
+  </header>
+
+  <label class="field">
+    <span>Value</span>
+    <input
+      type="text"
+      [ngModel]="scannedValue()"
+      (ngModelChange)="scannedValue.set($event)"
+      placeholder="Empty until you scan"
+    />
+  </label>
+
+  <button type="button" class="btn" (click)="startScan()">Scan</button>
+
+  @if (lastFormat() || lastState() || lastError()) {
+    <dl class="meta">
+      @if (lastFormat()) {
+        <div>
+          <dt>Format</dt>
+          <dd>{{ lastFormat() }}</dd>
+        </div>
+      }
+      @if (lastState()) {
+        <div>
+          <dt>State</dt>
+          <dd>{{ lastState() }}</dd>
+        </div>
+      }
+      @if (lastError()) {
+        <div>
+          <dt>Error</dt>
+          <dd>{{ lastError() }}</dd>
+        </div>
+      }
+    </dl>
+  }
+</main>

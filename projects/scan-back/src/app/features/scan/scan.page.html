@@ -1,0 +1,72 @@
+<div class="scan">
+  @if (status() === 'invalid-return-url') {
+    <section class="panel">
+      <h1>Invalid returnUrl</h1>
+      <p>{{ errorDetail() }}</p>
+      <a routerLink="/" class="btn">Back to home</a>
+    </section>
+  } @else if (status() === 'permission-denied' || status() === 'no-camera' || status() === 'error') {
+    <section class="panel">
+      <h1>Unable to scan</h1>
+      <p>{{ errorDetail() }}</p>
+      <div class="actions">
+        <button type="button" class="btn" (click)="onScanAgain()">Try again</button>
+        <a routerLink="/" class="btn btn-ghost">Back to home</a>
+      </div>
+    </section>
+  } @else if (status() === 'result') {
+    <section class="panel">
+      <h1>Result</h1>
+      <p class="scan-value">{{ result()?.scanValue }}</p>
+      <p class="meta">Format: {{ result()?.format }}</p>
+      <div class="actions">
+        <button type="button" class="btn" (click)="onCopy()">
+          {{ copied() ? 'Copied!' : 'Copy' }}
+        </button>
+        <button type="button" class="btn btn-ghost" (click)="onScanAgain()">Scan again</button>
+      </div>
+    </section>
+  } @else {
+    <div
+      class="viewport"
+      (touchstart)="onTouchStart($event)"
+      (touchmove)="onTouchMove($event)"
+      (touchend)="onTouchEnd($event)"
+      (touchcancel)="onTouchEnd($event)"
+    >
+      <video #preview playsinline muted autoplay></video>
+      <div class="overlay" aria-hidden="true">
+        <div class="reticle"></div>
+      </div>
+      <p class="status" role="status">{{ statusMessage() }}</p>
+
+      <div class="zoom" aria-label="Zoom controls">
+        <button type="button" class="zoom-btn" (click)="onZoomOut()" aria-label="Zoom out">
+          −
+        </button>
+        <input
+          class="zoom-slider"
+          type="range"
+          [min]="zoomMin()"
+          [max]="zoomMax()"
+          [step]="0.1"
+          [value]="zoom()"
+          (input)="onZoomSlider($event)"
+          [attr.aria-valuetext]="zoomLabel()"
+          aria-label="Zoom"
+        />
+        <button type="button" class="zoom-btn" (click)="onZoomIn()" aria-label="Zoom in">
+          +
+        </button>
+        <span class="zoom-label">{{ zoomLabel() }}</span>
+      </div>
+
+      <div class="toolbar">
+        <button type="button" class="btn btn-ghost" (click)="onCancel()">Cancel</button>
+        @if (deviceCount() > 1) {
+          <button type="button" class="btn" (click)="onSwitchCamera()">Switch camera</button>
+        }
+      </div>
+    </div>
+  }
+</div>
